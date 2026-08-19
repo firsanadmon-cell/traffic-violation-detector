@@ -1,0 +1,13 @@
+version: '3.8'
+
+services:
+  api:
+    build: .
+    ports:
+      - "8000:8000"
+    environment:
+      - YOLO_MODEL=yolov8n.pt
+      - CONF_THRESHOLD=0.4
+    volumes:
+      - ./data:/app/data
+    restart: unless-stopped
